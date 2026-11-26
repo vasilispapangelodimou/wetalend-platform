@@ -12,13 +12,18 @@ export default function ConnectionTest() {
     try {
       const supabase = createClient()
 
-      const { error } = await supabase
+      const { error, status: httpStatus } = await supabase
         .from('profiles')
-        .select('id', { head: true })
-        .limit(1)
+        .select('id')
+        .limit(0)
 
       if (error) {
-        setStatus('Connection test failed: ' + error.message)
+        setStatus(
+          'Connection test failed: HTTP ' +
+          httpStatus + ' | ' +
+          (error.code || 'Unknown code') + ' | ' +
+          (error.message || 'No error message')
+        )
       } else {
         setStatus('Supabase connection successful!')
       }
