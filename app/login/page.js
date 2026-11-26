@@ -51,10 +51,8 @@ export default function LoginPage() {
 
       setPassword("");
 
-      setSuccess(
-        `Welcome back, ${profile.full_name || "user"}! ` +
-        `You are signed in as ${profile.account_type}.`
-      );
+      
+     window.location.replace("/dashboard");
 
     } catch {
       setError("Something went wrong. Please try again.");
