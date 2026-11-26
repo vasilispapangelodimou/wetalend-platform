@@ -135,7 +135,7 @@ export default function Dashboard() {
   return (
     <main style={styles.page}>
       <header style={styles.header}>
-        <div style={styles.logo}>
+        <div style={{ ...styles.logo, color: "#10243A" }}>
           Wetalen<span style={{ color: "#3478c8" }}>D</span>
         </div>
 
